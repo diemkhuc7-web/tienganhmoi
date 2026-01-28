@@ -2,247 +2,178 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>English Drag & Drop Practice</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Drag & Drop English Practice</title>
 
 <style>
-body{
- font-family:Arial;
- padding:15px;
- background:linear-gradient(135deg,#e0f2ff,#f3e8ff);
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#cfe7ff,#fef6ff);
+  padding: 20px;
 }
 
-h1{
- text-align:center;
- background:#ffffffcc;
- padding:12px;
- border-radius:10px;
+h2 {
+  background:#dbeeff;
+  padding:12px;
+  border-radius:12px;
 }
 
-h2{
- background:#ffffffcc;
- padding:10px;
- border-radius:8px;
+.word-box {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:15px 0;
 }
 
-.section{
- background:#ffffff;
- border-radius:14px;
- padding:15px;
- margin-bottom:25px;
- box-shadow:0 4px 10px rgba(0,0,0,0.08);
+.word {
+  padding:10px 16px;
+  background:white;
+  border:2px solid #6c8cff;
+  border-radius:20px;
+  cursor:pointer;
+  user-select:none;
+  font-weight:bold;
 }
 
-.word-box{
- background:#f9fafb;
- padding:10px;
- border-radius:10px;
- margin-bottom:12px;
+.word.active {
+  background:#6c8cff;
+  color:white;
 }
 
-.word-box span{
- display:inline-block;
- padding:6px 14px;
- border-radius:20px;
- border:1px solid #555;
- margin:5px;
- cursor:grab;
- background:#eef6ff;
- transition:0.2s;
+.blank {
+  display:inline-block;
+  min-width:120px;
+  border-bottom:2px dashed #555;
+  margin:0 5px;
+  padding:4px;
+  font-weight:bold;
 }
 
-.word-box span:hover{
- background:#dbeafe;
+.sentence {
+  margin:12px 0;
 }
 
-.blank{
- display:inline-block;
- min-width:120px;
- border-bottom:2px dashed #555;
- margin:0 5px;
- padding:4px;
- text-align:center;
- font-weight:bold;
+button {
+  margin-top:20px;
+  padding:12px 20px;
+  border:none;
+  border-radius:20px;
+  background:#6c8cff;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
 }
 
-.correct{background:#c8f7c5}
-.wrong{background:#f7c5c5}
-
-.explain{
- display:none;
- margin-top:6px;
- font-size:14px;
- background:#f1f5f9;
- padding:6px;
- border-radius:6px;
+.translation {
+  color:#555;
+  font-style:italic;
+  display:none;
+  margin-left:10px;
 }
 
-button{
- margin:10px 5px;
- padding:8px 16px;
- border:none;
- border-radius:8px;
- background:#2563eb;
- color:white;
- cursor:pointer;
- font-size:15px;
+.correct {
+  color:green;
 }
-
-button:hover{
- background:#1d4ed8;
+.wrong {
+  color:red;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Drag & Drop English Practice</h1>
+<h2>Exercise 1: Complete the sentences</h2>
 
-<h2>Exercise 1: Complete the sentences (Drag & Drop)</h2>
-
-<div class="section">
-<div class="word-box">
-<span draggable="true">boring</span>
-<span draggable="true">educational</span>
-<span draggable="true">funny</span>
-<span draggable="true">clever</span>
-<span draggable="true">popular</span>
-<span draggable="true">entertaining</span>
-<span draggable="true">interesting</span>
-<span draggable="true">cute</span>
+<div class="word-box" id="words1">
+  <div class="word">boring</div>
+  <div class="word">educational</div>
+  <div class="word">funny</div>
+  <div class="word">clever</div>
+  <div class="word">popular</div>
+  <div class="word">entertaining</div>
+  <div class="word">interesting</div>
+  <div class="word">cute</div>
 </div>
 
-<ol>
-<li>This is a very <span class="blank" data-answer="popular"></span> television programme.
-<div class="explain">popular = được nhiều người xem</div></li>
+<div class="sentence">1. This is a very <span class="blank" data-answer="popular"></span> television programme.
+<span class="translation">Đây là một chương trình truyền hình rất phổ biến.</span></div>
 
-<li>It was a really <span class="blank" data-answer="funny"></span> film.
-<div class="explain">funny = gây cười</div></li>
+<div class="sentence">2. It was a really <span class="blank" data-answer="funny"></span> film.
+<span class="translation">Đó là một bộ phim rất hài hước.</span></div>
 
-<li>Donald Duck is so <span class="blank" data-answer="cute"></span>!
-<div class="explain">cute = dễ thương</div></li>
+<div class="sentence">3. Donald Duck is so <span class="blank" data-answer="cute"></span>!
+<span class="translation">Vịt Donald thật dễ thương!</span></div>
 
-<li>Jerry is small, but he’s brave and <span class="blank" data-answer="clever"></span>.
-<div class="explain">clever = thông minh</div></li>
-
-<li>Discovery offers <span class="blank" data-answer="educational"></span> programmes.
-<div class="explain">educational = mang tính giáo dục</div></li>
-
-<li>Discover <span class="blank" data-answer="interesting"></span> facts about animals.
-<div class="explain">interesting = thú vị</div></li>
-
-<li>This programme is <span class="blank" data-answer="boring"></span>.
-<div class="explain">boring = nhàm chán</div></li>
-
-<li>The talk show is informative and <span class="blank" data-answer="entertaining"></span>.
-<div class="explain">entertaining = mang tính giải trí</div></li>
-</ol>
-</div>
+<div class="sentence">4. Jerry is small, but he’s brave and <span class="blank" data-answer="clever"></span>.
+<span class="translation">Jerry nhỏ con nhưng dũng cảm và thông minh.</span></div>
 
 <hr>
 
-<h2>Exercise 2: Complete the passage (Drag & Drop)</h2>
+<h2>Exercise 2: Complete the passage</h2>
 
-<div class="section">
-<div class="word-box">
-<span draggable="true">friends</span>
-<span draggable="true">because</span>
-<span draggable="true">crazy</span>
-<span draggable="true">enjoy</span>
-<span draggable="true">programme</span>
-<span draggable="true">entertainment</span>
-<span draggable="true">restrict</span>
-<span draggable="true">fond</span>
+<div class="word-box" id="words2">
+  <div class="word">friends</div>
+  <div class="word">because</div>
+  <div class="word">crazy</div>
+  <div class="word">enjoy</div>
+  <div class="word">programme</div>
+  <div class="word">entertainment</div>
+  <div class="word">restrict</div>
+  <div class="word">fond</div>
 </div>
 
-<p>
-For me, TV is the best source of
-<span class="blank" data-answer="entertainment"></span>.
-<div class="explain">entertainment = sự giải trí</div>
-</p>
+<div class="sentence">1. For me TV is the best source of <span class="blank" data-answer="entertainment"></span>.
+<span class="translation">Với tôi, TV là nguồn giải trí tốt nhất.</span></div>
 
-<p>
-My favourite TV
-<span class="blank" data-answer="programme"></span>
-is “How I Met Your Mother”.
-<div class="explain">programme = chương trình</div>
-</p>
+<div class="sentence">2. My favourite TV <span class="blank" data-answer="programme"></span> is “How I met your mother”.
+<span class="translation">Chương trình TV yêu thích của tôi là “How I met your mother”.</span></div>
 
-<p>
-I like it
-<span class="blank" data-answer="because"></span>
-it is funny and I
-<span class="blank" data-answer="enjoy"></span>
-myself a lot.
-<div class="explain">because = bởi vì / enjoy oneself = cảm thấy vui</div>
-</p>
+<div class="sentence">3. I like it <span class="blank" data-answer="because"></span> it is funny.
+<span class="translation">Tôi thích nó vì nó hài hước.</span></div>
 
-<p>
-The series follows Ted Mosby and his group of
-<span class="blank" data-answer="friends"></span>.
-<div class="explain">friends = bạn bè</div>
-</p>
+<div class="sentence">4. The series follows Ted Mosby and his group of <span class="blank" data-answer="friends"></span>.
+<span class="translation">Bộ phim xoay quanh Ted Mosby và nhóm bạn của anh ấy.</span></div>
 
-<p>
-I am also
-<span class="blank" data-answer="fond"></span>
-of “Criminal Minds”.
-<div class="explain">be fond of = yêu thích</div>
-</p>
+<div class="sentence">5. I am also <span class="blank" data-answer="fond"></span> of “Criminal Minds”.
+<span class="translation">Tôi cũng rất yêu thích “Criminal Minds”.</span></div>
 
-<p>
-My parents sometimes
-<span class="blank" data-answer="restrict"></span>
-my television viewing.
-<div class="explain">restrict = hạn chế</div>
-</p>
+<div class="sentence">6. My parents sometimes <span class="blank" data-answer="restrict"></span> my television viewing.
+<span class="translation">Bố mẹ tôi đôi khi hạn chế việc xem TV của tôi.</span></div>
 
-<p>
-I would go
-<span class="blank" data-answer="crazy"></span>
-if I couldn’t watch TV for a week.
-<div class="explain">go crazy = phát điên</div>
-</p>
-</div>
-
-<button onclick="submit()">Nộp bài</button>
-<button onclick="resetQuiz()">Làm lại bài</button>
-
-<p id="result" style="font-weight:bold"></p>
+<button onclick="submitAnswers()">Submit</button>
 
 <script>
-let dragged;
+let selectedWord = null;
 
-document.querySelectorAll('[draggable]').forEach(el=>{
- el.addEventListener('dragstart',e=>dragged=e.target);
+document.querySelectorAll('.word').forEach(word=>{
+  word.addEventListener('click', ()=>{
+    document.querySelectorAll('.word').forEach(w=>w.classList.remove('active'));
+    word.classList.add('active');
+    selectedWord = word;
+  });
 });
 
-document.querySelectorAll('.blank').forEach(b=>{
- b.addEventListener('dragover',e=>e.preventDefault());
- b.addEventListener('drop',e=>{
-  e.preventDefault();
-  b.textContent=dragged.textContent;
- });
+document.querySelectorAll('.blank').forEach(blank=>{
+  blank.addEventListener('click', ()=>{
+    if(selectedWord){
+      blank.textContent = selectedWord.textContent;
+      blank.dataset.user = selectedWord.textContent;
+    }
+  });
 });
 
-function submit(){
- let correct=0;
- let blanks=document.querySelectorAll('.blank');
- blanks.forEach(b=>{
-  if(b.textContent===b.dataset.answer){
-   b.classList.add('correct');
-   correct++;
-  }else{
-   b.classList.add('wrong');
-  }
- });
- document.querySelectorAll('.explain').forEach(e=>e.style.display="block");
- document.getElementById('result').innerText=
-  `Correct answers: ${correct} / ${blanks.length}`;
-}
+function submitAnswers(){
+  document.querySelectorAll('.blank').forEach(blank=>{
+    if(blank.dataset.user === blank.dataset.answer){
+      blank.classList.add('correct');
+    } else {
+      blank.classList.add('wrong');
+    }
+  });
 
-function resetQuiz(){
- location.reload();
+  document.querySelectorAll('.translation').forEach(t=>{
+    t.style.display = 'inline';
+  });
 }
 </script>
 
